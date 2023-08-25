@@ -80,32 +80,31 @@ Distributeur.beforeCreate((distributeur, options) => {
 // prototype method for all users to check password
 Distributeur.prototype.authenticate = async function (value, callback) {
     await bcrypt.compare(value, this.password, (err, same) => {
-        if (err){
+        if (err) {
             console.log(err)
             callback(err)
-        }else{
+        } else {
             console.log('authenticate', err, same)
             callback(err, same)
         }
     })
 };
 
-Distributeur.hasMany(Commission ,{
+Distributeur.hasMany(Commission, {
     foreignKey: 'distributeurId',
     targetKey: 'id',
-  });
-// Distributeur.hasMany(Commission);
-Distributeur.hasMany(Distribution ,{
+});
+Distributeur.hasMany(Distribution, {
     foreignKey: 'distributeurId',
     targetKey: 'id',
-  });
-Distributeur.hasMany(PDV ,{
+});
+Distributeur.hasMany(PDV, {
     foreignKey: 'distributeurId',
     targetKey: 'id',
-  });
-Distributeur.hasMany(ContratAssurance ,{
+});
+Distributeur.hasMany(ContratAssurance, {
     foreignKey: 'distributeurId',
     targetKey: 'id',
-  });
+});
 
 module.exports = Distributeur;

@@ -48,9 +48,15 @@ app.listen(SERVER_PORT, () => {
 
 const authRoute = require('./routes/authRoute');
 const distributionRoute = require('./routes/distributionRoute');
+const pdvRoute = require('./routes/pdvRoute');
+const commissionRoute = require('./routes/commissionRoute');
+const contratAssuranceRoute = require('./routes/contratAssuranceRoute');
 
 app.use('/auth', authRoute);
 app.use('/distribution', distributionRoute);
+app.use('/pdv', pdvRoute);
+app.use('/commission', commissionRoute);
+app.use('/contratAssurance', contratAssuranceRoute);
 
 /* CORS config */
 
@@ -62,3 +68,10 @@ app.use(cors({
     credentials: true
 }));
 
+/* All routes */
+
+const allRoutes = require('express-list-endpoints');
+
+//Décommenter la ligne suivante pour avoir toutes vos routes dans le terminal
+
+// console.log(allRoutes(app));

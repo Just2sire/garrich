@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const {add, edit, one} = require("../controllers/distributionController");
+const { add, edit, one } = require('../controllers/contratAssuranceController');
 
 router.post('/add', add);
 

@@ -10,7 +10,7 @@ const add = (req, res) => {
 
 const edit = (req, res) => {
     let id = req.params.id;
-    const data = req.body();
+    const data = req.body;
     Distribution.update(
         data, { where: { id: id }  }// L'ID de l'entrée que vous voulez mettre à jour
     ).then((ok) => res.json({message: "La distribution a été modifié avec succès"}));
